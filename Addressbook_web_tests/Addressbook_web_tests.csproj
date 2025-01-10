@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\NUnit3TestAdapter.4.6.0\build\net462\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.4.6.0\build\net462\NUnit3TestAdapter.props')" />
   <Import Project="..\packages\NUnitTestAdapter.2.3.0\build\NUnitTestAdapter.props" Condition="Exists('..\packages\NUnitTestAdapter.2.3.0\build\NUnitTestAdapter.props')" />
   <Import Project="..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -81,7 +80,6 @@
     <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.props'))" />
     <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.targets'))" />
     <Error Condition="!Exists('..\packages\NUnitTestAdapter.2.3.0\build\NUnitTestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnitTestAdapter.2.3.0\build\NUnitTestAdapter.props'))" />
-    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.4.6.0\build\net462\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.4.6.0\build\net462\NUnit3TestAdapter.props'))" />
   </Target>
   <Import Project="..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.targets')" />
 </Project>

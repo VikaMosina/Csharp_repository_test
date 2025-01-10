@@ -142,7 +142,7 @@ namespace WebAddressbookTests
 
         private void SubmitContactCreation()
         {
-            driver.FindElement(By.XPath("//div[@id='content']/form/input[20]")).Click();
+            driver.FindElement(By.Name("submit")).Click();
         }
 
         private bool IsElementPresent(By by)
