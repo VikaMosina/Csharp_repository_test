@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace WebAddressbookTests
 {
-    class AccountData
+    public class AccountData
     {
-        private string username; // Значение имени
-        private string password; // Значение пароля
+        private string username;
+        private string password;
 
-        // Конструктор для изменения параметров
+        
         public AccountData(string username, string password)
         {
             this.username = username;
             this.password = password;
         }
-
-        // Создаем свойство для имени
 
         public string Username { 
         
@@ -31,8 +29,6 @@ namespace WebAddressbookTests
                 username = value;
             }
         }
-
-        // Создаем свойство для пароля
         public string Password
         {
             get 

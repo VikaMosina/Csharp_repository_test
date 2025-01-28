@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Addressbook_web_tests
 {
-    internal class ContactData
+    public class ContactData
     {
         private string firstname;
         private string lastname;
@@ -35,11 +35,11 @@ namespace Addressbook_web_tests
 
         public string Firstname
         {
-            get // получение 
+            get 
             {
                 return firstname;
             }
-            set // запись
+            set 
             {
                 firstname = value;
             }
@@ -47,11 +47,11 @@ namespace Addressbook_web_tests
 
         public string Lastname
         {
-            get // получение 
+            get 
             {
                 return lastname;
             }
-            set // запись
+            set 
             {
                 lastname = value;
             }
@@ -59,11 +59,11 @@ namespace Addressbook_web_tests
 
         public string Middlename
         {
-            get // получение 
+            get 
             {
                 return middlename;
             }
-            set // запись
+            set 
             {
                 middlename = value;
             }
@@ -71,11 +71,11 @@ namespace Addressbook_web_tests
 
         public string Nickname
         {
-            get // получение 
+            get  
             {
                 return nickname;
             }
-            set // запись
+            set 
             {
                 nickname = value;
             }
@@ -83,11 +83,11 @@ namespace Addressbook_web_tests
 
         public string Title
         {
-            get // получение 
+            get  
             {
                 return title;
             }
-            set // запись
+            set 
             {
                 title = value;
             }
@@ -95,11 +95,11 @@ namespace Addressbook_web_tests
 
         public string Company
         {
-            get // получение 
+            get 
             {
                 return company;
             }
-            set // запись
+            set 
             {
                 company = value;
             }
@@ -107,11 +107,11 @@ namespace Addressbook_web_tests
 
         public string Address
         {
-            get // получение 
+            get  
             {
                 return address;
             }
-            set // запись
+            set 
             {
                 address = value;
             }
@@ -119,11 +119,11 @@ namespace Addressbook_web_tests
 
         public string Home
         {
-            get // получение 
+            get  
             {
                 return home;
             }
-            set // запись
+            set 
             {
                 home = value;
             }
@@ -131,11 +131,11 @@ namespace Addressbook_web_tests
 
         public string Mobile
         {
-            get // получение 
+            get  
             {
                 return mobile;
             }
-            set // запись
+            set 
             {
                 mobile = value;
             }
@@ -143,11 +143,11 @@ namespace Addressbook_web_tests
 
         public string Work
         {
-            get // получение 
+            get  
             {
                 return work;
             }
-            set // запись
+            set 
             {
                 work = value;
             }
@@ -155,11 +155,11 @@ namespace Addressbook_web_tests
 
         public string Fax
         {
-            get // получение 
+            get  
             {
                 return fax;
             }
-            set // запись
+            set 
             {
                 fax = value;
             }
@@ -167,11 +167,11 @@ namespace Addressbook_web_tests
 
         public string Email
         {
-            get // получение 
+            get  
             {
                 return email;
             }
-            set // запись
+            set 
             {
                 email = value;
             }
@@ -179,11 +179,11 @@ namespace Addressbook_web_tests
 
         public string Email2
         {
-            get // получение 
+            get  
             {
                 return email2;
             }
-            set // запись
+            set 
             {
                 email2 = value;
             }
@@ -191,11 +191,11 @@ namespace Addressbook_web_tests
 
         public string Email3
         {
-            get // получение 
+            get  
             {
                 return email3;
             }
-            set // запись
+            set 
             {
                 email3 = value;
             }
@@ -203,11 +203,11 @@ namespace Addressbook_web_tests
 
         public string Homepage
         {
-            get // получение 
+            get  
             {
                 return homepage;
             }
-            set // запись
+            set 
             {
                 homepage = value;
             }
