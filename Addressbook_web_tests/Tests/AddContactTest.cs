@@ -1,9 +1,4 @@
-﻿using System;
-using System.Diagnostics.Contracts;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using Addressbook_web_tests;
+﻿using Addressbook_web_tests;
 using NUnit.Framework;
 
 namespace WebAddressbookTests
