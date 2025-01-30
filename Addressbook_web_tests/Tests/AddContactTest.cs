@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -13,9 +14,9 @@ namespace WebAddressbookTests
         [Test]
         public void TheTest()
         {
-            OpenHomePage();
-            Login(new AccountData("admin", "secret"));
-            GoToContactPage();
+            app.Navigation.OpenHomePage();
+            app.Auth.Login(new AccountData("admin", "secret"));
+            app.Navigation.GoToContactPage();
             ContactData contact = (new ContactData("Vika", "Mosina"));
             contact.Middlename = "Konstantinovna";
             contact.Nickname = "CoolGirl";
@@ -30,9 +31,9 @@ namespace WebAddressbookTests
             contact.Email2 = "nut_ahadilu36@inbox.ru";
             contact.Email3 = "vok-ofulexo91@inbox.ru";
             contact.Homepage = "bla-bla";
-            FillContactForm(contact);
-            SubmitContactCreation();
-            ReturnToHomePage();
+            app.Contacts.FillContactForm(contact);
+            app.Contacts.SubmitContactCreation();
+            app.Navigation.ReturnToHomePage();
         }
     }
 }
