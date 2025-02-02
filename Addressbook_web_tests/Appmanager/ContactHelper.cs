@@ -1,4 +1,5 @@
-﻿using Addressbook_web_tests;
+﻿using System;
+using Addressbook_web_tests;
 using OpenQA.Selenium;
 
 namespace WebAddressbookTests
@@ -6,11 +7,45 @@ namespace WebAddressbookTests
     public class ContactHelper : HelperBase
     {
 
-        public ContactHelper(IWebDriver driver) : base(driver)
+        public ContactHelper(ApplicftionManager manager) : base(manager)
         {
         }
 
-        public void FillContactForm(ContactData contact)
+        public ContactHelper Create(ContactData contact) 
+        {
+            manager.Navigation.GoToContactPage();
+
+            FillContactForm(contact);
+            SubmitContactCreation();
+
+            manager.Navigation.ReturnToHomePage();
+
+            return this;
+
+        }
+
+        public ContactHelper Modify(int h, ContactData newData)
+        {
+            SelectContact(h);
+            InitContactModification();
+            FillContactForm(newData);
+            SubmitContactModification();
+
+            manager.Navigation.ReturnToHomePage();
+
+            return this;
+        }
+
+        public ContactHelper Remove(int t)
+        {
+
+            SelectContact(t);
+            RemoveContact();
+
+            return this;
+        }
+
+        public ContactHelper FillContactForm(ContactData contact)
         {
             driver.FindElement(By.Name("firstname")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
@@ -57,10 +92,33 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("homepage")).Click();
             driver.FindElement(By.Name("homepage")).Clear();
             driver.FindElement(By.Name("homepage")).SendKeys(contact.Homepage);
+            return this;
         }
-        public void SubmitContactCreation()
+        public ContactHelper SubmitContactCreation()
         {
             driver.FindElement(By.Name("submit")).Click();
+            return this;
         }
+        public ContactHelper SelectContact(int index)
+        {
+            driver.FindElement(By.Id("" + index + "")).Click();
+            return this;
+        }
+        public ContactHelper RemoveContact()
+        {
+            driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
+            return this;
+        }
+        public ContactHelper InitContactModification()
+        {
+            driver.FindElement(By.XPath("//img[@alt='Edit']")).Click();
+            return this;
+        }
+        public ContactHelper SubmitContactModification()
+        {
+            driver.FindElement(By.Name("update")).Click();
+            return this;
+        }
+
     }
 }

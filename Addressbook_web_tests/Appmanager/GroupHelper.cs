@@ -1,19 +1,61 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 
 
 namespace WebAddressbookTests
 {
     public class GroupHelper : HelperBase
     {
-        public GroupHelper(IWebDriver driver) : base(driver) 
+        public GroupHelper(ApplicftionManager manager) : base(manager) 
         {
         }
 
-        public void InitNewGroupCreation()
+        public GroupHelper Create(GroupData group) 
+        {
+            manager.Navigation.GoToGroupsPage();
+
+            InitNewGroupCreation();
+            FillGroupForm(group);
+            SubmitGroupCreation();
+
+            manager.Navigation.ReturnToGroupsPage();
+
+            return this;
+        }
+
+        public GroupHelper Modify(int r, GroupData newData)
+        {
+            manager.Navigation.GoToGroupsPage();
+
+            SelectGroup(r);
+            InitGroupModification();
+            FillGroupForm(newData);
+            SubmitGroupModification();
+
+            manager.Navigation.ReturnToGroupsPage();
+
+            return this;
+
+        }
+
+        public GroupHelper Remove(int v)
+        {
+            manager.Navigation.GoToGroupsPage();
+
+            SelectGroup(v);
+            RemoveGroup();
+
+            manager.Navigation.ReturnToGroupsPage();
+
+            return this;
+        }
+
+        public GroupHelper InitNewGroupCreation()
         {
             driver.FindElement(By.XPath("//div[@id='content']/form/input[4]")).Click();
+            return this;
         }
-        public void FillGroupForm(GroupData group)
+        public GroupHelper FillGroupForm(GroupData group)
         {
             driver.FindElement(By.Name("group_name")).Clear();
             driver.FindElement(By.Name("group_name")).SendKeys(group.Name);
@@ -21,18 +63,33 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("group_header")).SendKeys(group.Header);
             driver.FindElement(By.Name("group_footer")).Clear();
             driver.FindElement(By.Name("group_footer")).SendKeys(group.Footer);
+            return this;
         }
-        public void SubmitGroupCreation()
+        public GroupHelper SubmitGroupCreation()
         {
             driver.FindElement(By.Name("submit")).Click();
+            return this;
         }
-        public void SelectGroup(int index)
+        public GroupHelper SelectGroup(int index)
         {
             driver.FindElement(By.XPath("//div[@id='content']/form/span[" + index + "]/input")).Click();
+            return this;
         }
-        public void RemoveGroup()
+        public GroupHelper RemoveGroup()
         {
             driver.FindElement(By.Name("delete")).Click();
+            return this;
         }
+        public GroupHelper InitGroupModification()
+        {
+            driver.FindElement(By.Name("edit")).Click();
+            return this;
+        }
+        public GroupHelper SubmitGroupModification()
+        {
+            driver.FindElement(By.Name("update")).Click();
+            return this;
+        }
+
     }
 }

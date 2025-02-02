@@ -7,11 +7,8 @@ namespace WebAddressbookTests
     public class AddContactTests : TestBase
     {
         [Test]
-        public void TheTest()
+        public void ContactCreation()
         {
-            app.Navigation.OpenHomePage();
-            app.Auth.Login(new AccountData("admin", "secret"));
-            app.Navigation.GoToContactPage();
             ContactData contact = (new ContactData("Vika", "Mosina"));
             contact.Middlename = "Konstantinovna";
             contact.Nickname = "CoolGirl";
@@ -26,10 +23,32 @@ namespace WebAddressbookTests
             contact.Email2 = "nut_ahadilu36@inbox.ru";
             contact.Email3 = "vok-ofulexo91@inbox.ru";
             contact.Homepage = "bla-bla";
-            app.Contacts.FillContactForm(contact);
-            app.Contacts.SubmitContactCreation();
-            app.Navigation.ReturnToHomePage();
+
+            app.Contacts.Create(contact);;
         }
+        
+        [Test]
+        public void EmptyContactCreation()
+        {
+
+            ContactData contact = (new ContactData("", ""));
+            contact.Middlename = "";
+            contact.Nickname = "";
+            contact.Title = "";
+            contact.Company = "";
+            contact.Address = "";
+            contact.Home = "";
+            contact.Mobile = "";
+            contact.Work = "";
+            contact.Fax = "";
+            contact.Email = "";
+            contact.Email2 = "";
+            contact.Email3 = "";
+            contact.Homepage = "";
+
+            app.Contacts.Create(contact);
+        }
+
     }
 }
 
