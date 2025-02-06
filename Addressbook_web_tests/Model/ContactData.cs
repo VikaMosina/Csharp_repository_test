@@ -1,5 +1,4 @@
-﻿
-namespace Addressbook_web_tests
+﻿namespace WebAddressbookTests
 {
     public class ContactData
     {
@@ -19,15 +18,13 @@ namespace Addressbook_web_tests
         private string email3 = "";
         private string homepage = "";
 
-
         public ContactData(string firstname, string lastname)
 
-        { 
+        {
             this.firstname = firstname;
             this.lastname = lastname;
-        
         }
-
+        
         public string Firstname
         {
             get 

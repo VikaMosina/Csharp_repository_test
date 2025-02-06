@@ -1,5 +1,4 @@
-﻿using Addressbook_web_tests;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace WebAddressbookTests
 {
@@ -24,7 +23,7 @@ namespace WebAddressbookTests
             newData.Email3 = "wandering_ninja_99@example.com";
             newData.Homepage = "bla-bla-bla";
 
-            app.Contacts.Modify(1, newData);
+            app.Contacts.Modify(3, newData);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-namespace WebAddressbookTests
+﻿namespace WebAddressbookTests
 {
     public class GroupData
     {

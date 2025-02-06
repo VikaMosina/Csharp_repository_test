@@ -1,7 +1,6 @@
 ﻿using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
-
 namespace WebAddressbookTests
 {
     public class ApplicftionManager
@@ -27,9 +26,9 @@ namespace WebAddressbookTests
 
         public IWebDriver Driver
         {
-            get 
+            get
             {
-                return driver;  
+                return driver;
             }
         }
 

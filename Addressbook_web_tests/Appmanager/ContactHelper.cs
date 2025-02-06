@@ -1,12 +1,11 @@
-﻿using System;
-using Addressbook_web_tests;
+﻿using System.Text.RegularExpressions;
+using NUnit.Framework;
 using OpenQA.Selenium;
 
 namespace WebAddressbookTests
 {
     public class ContactHelper : HelperBase
     {
-
         public ContactHelper(ApplicftionManager manager) : base(manager)
         {
         }
@@ -41,6 +40,7 @@ namespace WebAddressbookTests
 
             SelectContact(t);
             RemoveContact();
+            CloseAlertAndGetItsText(true);
 
             return this;
         }
@@ -118,6 +118,33 @@ namespace WebAddressbookTests
         {
             driver.FindElement(By.Name("update")).Click();
             return this;
+        }
+
+        #region Метод Alert для работы с окном
+        //в try происходит обращение к браузеру и соотве. методам
+        //если при выполнении try происходи ошибка
+        //далее исполняется catch, который возвращает пустую строку
+        #endregion
+        public string CloseAlertAndGetItsText(bool acceptNextAlert/*параметр, значение передается в методе Remove*/) 
+        {
+            try
+            {
+                IAlert alert = driver.SwitchTo().Alert();
+                string alertText = alert.Text;
+                if (acceptNextAlert)
+                {
+                    alert.Accept();
+                }
+                else
+                {
+                    alert.Dismiss();
+                }
+                return alertText;
+            }
+            catch
+            {
+                return "";
+            }
         }
 
     }

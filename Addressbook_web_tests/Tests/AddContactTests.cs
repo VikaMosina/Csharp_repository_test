@@ -1,5 +1,4 @@
-﻿using Addressbook_web_tests;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace WebAddressbookTests
 {
